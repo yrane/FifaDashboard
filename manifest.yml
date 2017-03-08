@@ -1,0 +1,17 @@
+---
+declared-services:
+  dashDB-nodesample:
+    label: dashDB
+    plan: Entry
+applications:
+# replace the host variable below with your own unique one, as this one can be already taken
+- name: dashdbnodeyrane
+  memory: 512M
+  instances: 1
+  path: .
+  host: dashdbnodeyrane
+  framework: node
+  command:    node app.js
+  buildpack:  sdk-for-nodejs
+  services:
+  - dashDB for Analytics-41
