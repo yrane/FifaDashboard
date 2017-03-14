@@ -29,13 +29,6 @@ def write_to_index(es, index_name):
             es.index(index=index_name, doc_type="teamstats", body=line)
 
 if __name__ == "__main__":
-    # es = Elasticsearch(
-    #     [
-    #         'https://avnadmin:br3b2rcdezbzpf82@elasticsearch5-32b866e2.yog2302-3b98.aivencloud.com:13269'
-    #     ],
-    #     verify_certs=True,
-    #     ca_certs='/Users/yrane/Downloads/temp/ca.pem',
-    # )
     es = Elasticsearch(
         [
             'localhost:9200'

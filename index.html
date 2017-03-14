@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Vue</title>
+  <title>Player Ratings</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -10,14 +10,9 @@
 <body>
 
   <!-- navigation bar -->
-  <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
-<script>
-    webshims.setOptions('forms-ext', {types: 'date'});
-webshims.polyfill('forms forms-ext');
-</script>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <a class="navbar-brand"><i class="glyphicon glyphicon-bullhorn"></i> Vue Events Bulletin Board</a>
+      <a class="navbar-brand"><i class="glyphicon glyphicon-bullhorn"></i> Player Ratings Entry Page</a>
     </div>
   </nav>
 
@@ -28,21 +23,129 @@ webshims.polyfill('forms forms-ext');
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3>Add an Event</h3>
+          <h3>Add a Player Rating</h3>
         </div>
         <div class="panel-body">
+         <!-- <div v-for="(value, key) in event">
 
           <div class="form-group">
-            <input class="form-control" placeholder="Event Name" v-model="event.name">
+           <label :for="key">{{ key }}</label>
+
+            <input class="form-control" :id="key" v-model="">
+          </div> -->
+
+          <div class="form-group">
+            <label for="Player">Player: </label>
+            <select v-model="event.Player">
+             <option disabled value="">Select a Player</option>
+             <option>Cristiano Ronaldo</option>
+             <option>Karim Benzema</option>
+             <option>Gareth Bale</option>
+             <option>Luka Modrić</option>
+             <option>Toni Kroos</option>
+             <option>Casemiro</option>
+             <option>Marcelo</option>
+             <option>Dani Carvajal</option>
+             <option>Sergio Ramos</option>
+             <option>Pepe</option>
+             <option>Keylor Navas</option>
+             <option>Isco</option>
+             <option>James Rodríguez</option>
+             <option>Morata</option>
+            </select>
           </div>
-
+          <label for="PositionType">Position Type: </label>
+          <select v-model="event.PositionType">
+           <option disabled value="">Select a Position Type</option>
+           <option>A</option>
+           <option>D</option>
+           <option>M</option>
+           <option>MA</option>
+           <option>MD</option>
+           <option>GK</option>
+          </select>
           <div class="form-group">
+            <label for="PlayerNumber">Player Number:</label>
+            <input class="form-control" v-model="event.PlayerNumber">
+          </div>
+          <div class="form-group">
+            <label for="Position">Position:</label>
+            <input class="form-control" v-model="event.Position">
+          </div>
+          <div class="form-group">
+            <label for="timestamp">Epoch Timestamp:</label>
+            <input class="form-control" v-model="event.timestamp">
+          </div>
+          <div class="form-group">
+            <label for="MatchRating">Match Rating:</label>
+            <input class="form-control" v-model="event.MatchRating" id="MatchRating">
+          </div>
+          <div class="form-group">
+            <label for="Goals">Goals:</label>
+            <input class="form-control" v-model="event.Goals">
+          </div>
+          <div class="form-group">
+            <label for="OwnGoals">Own Goals:</label>
+            <input class="form-control" v-model="event.OwnGoals">
+          </div>
+          <div class="form-group">
+            <label for="GoalAssists">Goals Assists:</label>
+            <input class="form-control" v-model="event.GoalAssists">
+          </div>
+          <div class="form-group">
+            <label for="ShotsOnTarget">Shots on Target:</label>
+            <input class="form-control" v-model="event.ShotsOnTarget">
+          </div>
+          <div class="form-group">
+            <label for="ShotsAttempted">Shots Attempted:</label>
+            <input class="form-control" v-model="event.ShotsAttempted">
+          </div>
+          <div class="form-group">
+            <label for="Passes">Passes:</label>
+            <input class="form-control" v-model="event.Passes">
+          </div>
+          <div class="form-group">
+            <label for="PassesAttempted">Pass Attempted:</label>
+            <input class="form-control" v-model="event.PassesAttempted">
+          </div>
+          <div class="form-group">
+            <label for="Dribbles">Dribbles:</label>
+            <input class="form-control" v-model="event.Dribbles">
+          </div>
+          <div class="form-group">
+            <label for="DribblesAttempted">Dribbles Attempted:</label>
+            <input class="form-control" v-model="event.DribblesAttempted">
+          </div>
+          <div class="form-group">
+            <label for="Crosses">Crosses:</label>
+            <input class="form-control" v-model="event.Crosses">
+          </div>
+          <div class="form-group">
+            <label for="CrossesAttempted">Crosses Attempted:</label>
+            <input class="form-control" v-model="event.CrossesAttempted">
+          </div>
+          <div class="form-group">
+            <label for="Tackles">Tackles:</label>
+            <input class="form-control" v-model="event.Tackles">
+          </div>
+          <div class="form-group">
+            <label for="TacklesAttempted">Tackles Attempted:</label>
+            <input class="form-control" v-model="event.TacklesAttempted">
+          </div>
+          <div class="form-group">
+            <label for="Saves">Saves:</label>
+            <input class="form-control" v-model="event.Saves">
+          </div>
+          <!-- </div> -->
+
+
+          <!-- <div class="form-group">
             <textarea class="form-control" placeholder="Event Description" v-model="event.description"></textarea>
           </div>
 
           <div class="form-group">
             <input type="date" class="form-control" placeholder="Date" v-model="event.date">
-          </div>
+          </div> -->
 
           <button class="btn btn-primary" v-on:click="addEvent">Submit</button>
 
@@ -53,21 +156,12 @@ webshims.polyfill('forms forms-ext');
     <!-- show the events -->
     <div class="col-sm-6">
       <div class="list-group">
-        <a href="#" class="list-group-item" v-for="(event, index) in events">
-          <h4 class="list-group-item-heading">
-            <i class="glyphicon glyphicon-bullhorn"></i>
-            {{ index }}
-            {{ event.name }}
-          </h4>
+       <h4 class="list-group-item-heading">Last Match Ratings</h4>
+        <a href="#" class="list-group-item" v-for="event in events">
+          <p class="list-group-item-text" v-if="event.Player">{{ event.Player }}</p>
+          <p class="list-group-item-text" v-if="event.MatchRating">{{ event.MatchRating }}</p>
 
-          <h5>
-            <i class="glyphicon glyphicon-calendar" v-if="event.date"></i>
-            {{ event.date }}
-          </h5>
-
-          <p class="list-group-item-text" v-if="event.description">{{ event.description }}</p>
-
-          <button class="btn btn-xs btn-danger" v-on:click="deleteEvent(index)">Delete</button>
+          <!-- <button class="btn btn-xs btn-danger" v-on:click="deleteEvent(index)">Delete</button> -->
         </a>
       </div>
     </div>
@@ -77,21 +171,5 @@ webshims.polyfill('forms forms-ext');
   <script src="node_modules/vue/dist/vue.js"></script>
   <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
   <script src="app.js"></script>
-  <!-- <script src="modernizr-custom.js"></script> -->
-  <script src="app.js"></script>
-  <!-- <script>
-    $(function(){
-        if (!Modernizr.inputtypes.date) {
-        // If not native HTML5 support, fallback to jQuery datePicker
-            $('input[type=date]').datepicker({
-                // Consistent format with the HTML5 picker
-                    dateFormat : 'yy-mm-dd'
-                },
-                // Localization
-                $.datepicker.regional['it']
-            );
-        }
-    });
-  </script> -->
 </body>
 </html>
