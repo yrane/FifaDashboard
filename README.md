@@ -1,5 +1,3 @@
-Testing out Vue
+Fifa Dashboard
 ===============
-
-Trying Vue for the first time, and getting [this awesome tutorial](https://scotch.io/tutorials/build-an-app-with-vue-js-a-lightweight-alternative-to-angularjs)
-working with Vue 2.0.
+App to write various game and player stats available after an online game in Fifa 17 to elasticsearch.
