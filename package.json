@@ -1,21 +1,9 @@
 {
-  "engines": {
-    "node": "0.10.33"
-  },
-  "name": "dashdbnodesample",
-  "version": "0.0.1",
-  "description": "A sample node app for connecting to dashDB service on Bluemix",
+  "name": "vuetest",
+  "version": "1.0.0",
   "dependencies": {
-    "cf-deployment-tracker-client": "0.0.8",
-    "express": "3.5.x",
-    "ibm_db": "0.0.19",
-    "jade": "1.11.0"
-  },
-  "scripts": {
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/IBM-Bluemix/dashdb-nodejs-helloworld"
+    "bootstrap": "^3.3.7",
+    "vue": "^2.0.1",
+    "vue-resource": "^1.0.3"
   }
 }

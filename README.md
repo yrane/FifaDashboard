@@ -1,2 +1,5 @@
-# FifaDashboard
-Tool to display various stats for my Fifa 17 gameplay (under dev)
+Testing out Vue
+===============
+
+Trying Vue for the first time, and getting [this awesome tutorial](https://scotch.io/tutorials/build-an-app-with-vue-js-a-lightweight-alternative-to-angularjs)
+working with Vue 2.0.

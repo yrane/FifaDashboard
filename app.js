@@ -1,74 +1,58 @@
-//------------------------------------------------------------------------------
-// Copyright 2016 IBM Corp. All Rights Reserved.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-//------------------------------------------------------------------------------
+// var Vue = require("vue");
 
-var express = require('express');
-var routes = require('./routes');
-var http = require('http');
-var path = require('path');
-var ibmdb = require('ibm_db');
-require('cf-deployment-tracker-client').track();
+new Vue({
 
+  // We want to target the div with an id of 'events'
+  el: '#events',
 
-var app = express();
+  // Here we can register any values or collections that hold data
+  // for the application
+  data: {
+    event: { name: '', description: '', date: '' },
+    events: []
+  },
 
-// all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
-app.use(express.session());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
-var db2;
-var hasConnect = false;
+  // Anything within the ready function will run when the application loads
+  mounted: function() {
+    // When the application loads, we want to call the method that initializes
+    // some data
+    this.fetchEvents();
+  },
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+  // Methods we want to use in our application are registered here
+  methods: {
+    // We dedicate a method to retrieving and setting some data
+    fetchEvents: function() {
+      var events = [];
 
-if (process.env.VCAP_SERVICES) {
-    var env = JSON.parse(process.env.VCAP_SERVICES);
-	if (env['dashDB']) {
-        hasConnect = true;
-		db2 = env['dashDB'][0].credentials;
-	}
-	
-}
+      // Set the collection of events
+      this.events = events;
 
-if ( hasConnect == false ) {
+      // or push them on separately
+      // for (var i in events) {
+      //   this.events.push(events[i]);
+      // }
+    },
 
-   db2 = {
-        db: "BLUDB",
-        hostname: "xxxx",
-        port: 50000,
-        username: "xxx",
-        password: "xxx"
-     };
-}
+    // Adds an event to the existing events array
+    addEvent: function() {
+      if(this.event.name) {
+        this.events.push(this.event);
+        this.event = { name: '', description: '', date: '' };
+      }
+    },
 
-var connString = "DRIVER={DB2};DATABASE=" + db2.db + ";UID=" + db2.username + ";PWD=" + db2.password + ";HOSTNAME=" + db2.hostname + ";port=" + db2.port;
+    deleteEvent: function(index) {
+      // if(confirm("Are you sure you want to delete this event?")) {
+      if(true) {
+        // $remove is a Vue convenience method similar to splice
 
-app.get('/', routes.listSysTables(ibmdb,connString));
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+        // window.alert;
+        this.events.splice(index, 1);
+       //  this.events = this.events.filter(function (id) {
+       //     return event.id != index;
+       // });
+      }
+    }
+  }
 });

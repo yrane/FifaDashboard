@@ -1,0 +1,342 @@
+{
+ "mappings": {
+      "gamestats": {
+        "properties": {
+          "Corners": {
+            "type": "long"
+          },
+          "CupType": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "ET": {
+            "type": "boolean"
+          },
+          "EndPenalties": {
+            "type": "boolean"
+          },
+          "Formation": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "Fouls": {
+            "type": "long"
+          },
+          "GameID": {
+            "type": "long"
+          },
+          "GameType": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "GoalByPenalties": {
+            "type": "long"
+          },
+          "TeamGoals": {
+            "type": "long"
+          },
+          "Location": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "MatchTIme": {
+            "type": "long"
+          },
+          "MatchTime": {
+            "type": "long"
+          },
+          "Offsides": {
+            "type": "long"
+          },
+          "Opponent": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "OpponentAssistMakers": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "OpponentCorners": {
+            "type": "long"
+          },
+          "OpponentCountry": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "OpponentFouls": {
+            "type": "long"
+          },
+          "OpponentGoalScorers": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "OpponentGoals": {
+            "type": "long"
+          },
+          "OpponentGoalsByCorner": {
+            "type": "long"
+          },
+          "OpponentLevel": {
+            "type": "long"
+          },
+          "OpponentOffsides": {
+            "type": "long"
+          },
+          "OpponentPassAccuracy": {
+            "type": "long"
+          },
+          "OpponentPossession": {
+            "type": "long"
+          },
+          "OpponentRedCards": {
+            "type": "long"
+          },
+          "OpponentSavesByGK": {
+            "type": "long"
+          },
+          "OpponentShotAccuracy": {
+            "type": "long"
+          },
+          "OpponentShots": {
+            "type": "long"
+          },
+          "OpponentShotsOnTarget": {
+            "type": "long"
+          },
+          "OpponentTackles": {
+            "type": "long"
+          },
+          "OpponentTeam": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "OpponentYellowCards": {
+            "type": "long"
+          },
+          "PassAccuracy": {
+            "type": "long"
+          },
+          "Platform": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "Possession": {
+            "type": "long"
+          },
+          "RedCards": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "Result": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "Level": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "ShotAccuracy": {
+            "type": "long"
+          },
+          "TeamShots": {
+            "type": "long"
+          },
+          "TeamShotsOnTarget": {
+            "type": "long"
+          },
+          "TeamTackles": {
+            "type": "long"
+          },
+          "PlayingTeam": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "TeamLeague": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "YellowCards": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "timestamp": {
+            "type": "date"
+          }
+        }
+      },
+      "teamstats": {
+        "properties": {
+          "Crosses": {
+            "type": "long"
+          },
+          "CrossesAttempted": {
+            "type": "long"
+          },
+          "Dribbles": {
+            "type": "long"
+          },
+          "DribblesAttempted": {
+            "type": "long"
+          },
+          "GameID": {
+            "type": "long"
+          },
+          "GoalAssists": {
+            "type": "long"
+          },
+          "Goals": {
+            "type": "long"
+          },
+          "MatchRating": {
+            "type": "float"
+          },
+          "OwnGoals": {
+            "type": "long"
+          },
+          "Passes": {
+            "type": "long"
+          },
+          "PassesAttempted": {
+            "type": "long"
+          },
+          "Player": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "timestamp": {
+            "type": "date"
+          },
+          "PlayerNumber": {
+            "type": "long"
+          },
+          "Position": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "PositionType": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "SOT": {
+            "type": "long"
+          },
+          "Saves": {
+            "type": "long"
+          },
+          "ShotsAttempted": {
+            "type": "long"
+          },
+          "Tackles": {
+            "type": "long"
+          },
+          "TacklesAttempted": {
+            "type": "long"
+          },
+          "Team": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+            }
+          }
+        }
+      }
+    }
