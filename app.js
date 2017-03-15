@@ -188,33 +188,41 @@ new Vue({
 
     // Adds an event to the existing events array
     addEvent: function() {
-      if(this.event.Player) {
-        this.events.push(this.event);
-        this.event = {
-         Team: "",
-         MatchRating: '',
-         Goals: 1,
-         OwnGoals: 0,
-         GoalAssists: 0,
-         ShotOnTarget: 4,
-         ShotsAttempted: 8,
-         Passes: 12,
-         PassesAttempted: 15,
-         Dribbles: 10,
-         DribblesAttempted: 14,
-         Crosses: 0,
-         CrossesAttempted: 1,
-         Tackles: 2,
-         TacklesAttempted: 4,
-         Saves: 0,
-         Player: "",
-         GameID: '',
-         PositionType: "A",
-         PlayerNumber: 7,
-         Position: "LW",
-         timestamp: ''
-        };
-        }
+      // if(this.event.Player) {
+       console.log(this.event.Passes)
+       this.$http.post('/', JSON.stringify(this.event), {
+        headers: {
+         'Content-Type': 'application/json'
+         }
+       }).then(function(response){
+        console.log(response)
+       });
+        // this.events.push(this.event);
+        // this.event = {
+        //  Team: "",
+        //  MatchRating: '',
+        //  Goals: 1,
+        //  OwnGoals: 0,
+        //  GoalAssists: 0,
+        //  ShotOnTarget: 4,
+        //  ShotsAttempted: 8,
+        //  Passes: 12,
+        //  PassesAttempted: 15,
+        //  Dribbles: 10,
+        //  DribblesAttempted: 14,
+        //  Crosses: 0,
+        //  CrossesAttempted: 1,
+        //  Tackles: 2,
+        //  TacklesAttempted: 4,
+        //  Saves: 0,
+        //  Player: "",
+        //  GameID: '',
+        //  PositionType: "A",
+        //  PlayerNumber: 7,
+        //  Position: "LW",
+        //  timestamp: ''
+        // };
+        // }
       }
     }
 
