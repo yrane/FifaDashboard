@@ -31,9 +31,23 @@ new Vue({
     PlayerNumber: 0,
     Position: "",
     timestamp: '' },
-    events: []
+    events: [],
+    positiontypes: []
   },
-
+  watch: {
+    'event.Player': function(val) {
+     for (var i = 0; i < this.events.length; i++){
+      if (val == this.events[i]['Player']){
+       this.event.Position = this.events[i].Position;
+       this.event.PositionType = this.events[i].PositionType;
+       this.event.PlayerNumber = this.events[i].PlayerNumber;
+       this.event.Team = this.events[i].Team;
+       this.event.timestamp = this.events[i].timestamp;
+      }
+     }
+      // change of userinput, do something
+    }
+  },
   // Anything within the ready function will run when the application loads
   mounted: function() {
     // When the application loads, we want to call the method that initializes
@@ -45,275 +59,126 @@ new Vue({
   methods: {
     // We dedicate a method to retrieving and setting some data
     fetchEvents: function() {
+     var time_in_millis = Date.now();
+     var positiontypes = ['A', 'D', 'M', 'MA', 'MD', 'GK']
      var events = [
       {
         Team: "Real Madrid",
-        MatchRating: 8.3,
-        Goals: 0,
-        OwnGoals: 0,
-        GoalAssists: 1,
-        ShotsOnTarget: 0,
-        ShotsAttempted: 1,
-        Passes: 17,
-        PassesAttempted: 18,
-        Dribbles: 8,
-        DribblesAttempted: 10,
-        Crosses: 0,
-        CrossesAttempted: 0,
-        Tackles: 0,
-        TacklesAttempted: 0,
-        Saves: 0,
         Player: "Cristiano Ronaldo",
-        GameID: 47,
         PositionType: "A",
         PlayerNumber: 7,
         Position: "LW",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
-        MatchRating: 8,
-        Goals: 0,
-        OwnGoals: 0,
-        GoalAssists: 0,
-        ShotsOnTarget: 1,
-        ShotsAttempted: 1,
-        Passes: 23,
-        PassesAttempted: 25,
-        Dribbles: 13,
-        DribblesAttempted: 14,
-        Crosses: 0,
-        CrossesAttempted: 0,
-        Tackles: 0,
-        TacklesAttempted: 4,
-        Saves: 0,
         Player: "Karim Benzema",
-        GameID: 47,
         PositionType: "A",
         PlayerNumber: 9,
         Position: "ST",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
-        MatchRating: 8.7,
-        Goals: 1,
-        OwnGoals: 0,
-        GoalAssists: 0,
-        ShotsOnTarget: 1,
-        ShotsAttempted: 2,
-        Passes: 18,
-        PassesAttempted: 21,
-        Dribbles: 10,
-        DribblesAttempted: 11,
-        Crosses: 0,
-        CrossesAttempted: 1,
-        Tackles: 0,
-        TacklesAttempted: 0,
-        Saves: 0,
         Player: "Gareth Bale",
-        GameID: 47,
         PositionType: "A",
         PlayerNumber: 11,
         Position: "RW",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
-        MatchRating: 7.6,
-        Goals: 0,
-        OwnGoals: 0,
-        GoalAssists: 0,
-        ShotsOnTarget: 1,
-        ShotsAttempted: 1,
-        Passes: 19,
-        PassesAttempted: 21,
-        Dribbles: 9,
-        DribblesAttempted: 9,
-        Crosses: 0,
-        CrossesAttempted: 0,
-        Tackles: 4,
-        TacklesAttempted: 6,
-        Saves: 0,
         Player: "Luka Modrić",
-        GameID: 47,
         PositionType: "M",
         PlayerNumber: 19,
         Position: "CDM",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
-        MatchRating: 7.9,
-        Goals: 0,
-        OwnGoals: 0,
-        GoalAssists: 0,
-        ShotsOnTarget: 1,
-        ShotsAttempted: 3,
-        Passes: 27,
-        PassesAttempted: 31,
-        Dribbles: 12,
-        DribblesAttempted: 14,
-        Crosses: 1,
-        CrossesAttempted: 1,
-        Tackles: 2,
-        TacklesAttempted: 2,
-        Saves: 0,
         Player: "Toni Kroos",
-        GameID: 47,
         PositionType: "M",
         PlayerNumber: 8,
         Position: "CDM",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
-        MatchRating: 8.5,
-        Goals: 0,
-        OwnGoals: 0,
-        GoalAssists: 0,
-        ShotsOnTarget: 0,
-        ShotsAttempted: 1,
-        Passes: 25,
-        PassesAttempted: 30,
-        Dribbles: 3,
-        DribblesAttempted: 3,
-        Crosses: 0,
-        CrossesAttempted: 0,
-        Tackles: 3,
-        TacklesAttempted: 5,
-        Saves: 0,
         Player: "Casemiro",
-        GameID: 47,
         PositionType: "MD",
         PlayerNumber: 14,
         Position: "CDM",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
-        MatchRating: 7.4,
-        Goals: 0,
-        OwnGoals: 0,
-        GoalAssists: 0,
-        ShotsOnTarget: 0,
-        ShotsAttempted: 0,
-        Passes: 15,
-        PassesAttempted: 16,
-        Dribbles: 4,
-        DribblesAttempted: 6,
-        Crosses: 0,
-        CrossesAttempted: 0,
-        Tackles: 2,
-        TacklesAttempted: 2,
-        Saves: 0,
         Player: "Marcelo",
-        GameID: 47,
         PositionType: "D",
         PlayerNumber: 12,
         Position: "LB",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
-        MatchRating: 7.6,
-        Goals: 0,
-        OwnGoals: 0,
-        GoalAssists: 0,
-        ShotsOnTarget: 0,
-        ShotsAttempted: 0,
-        Passes: 17,
-        PassesAttempted: 17,
-        Dribbles: 4,
-        DribblesAttempted: 4,
-        Crosses: 0,
-        CrossesAttempted: 0,
-        Tackles: 0,
-        TacklesAttempted: 0,
-        Saves: 0,
         Player: "Dani Carvajal",
-        GameID: 47,
         PositionType: "D",
         PlayerNumber: 2,
         Position: "RB",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
-        MatchRating: 7.1,
-        Goals: 0,
-        OwnGoals: 0,
-        GoalAssists: 0,
-        ShotsOnTarget: 0,
-        ShotsAttempted: 0,
-        Passes: 13,
-        PassesAttempted: 13,
-        Dribbles: 3,
-        DribblesAttempted: 5,
-        Crosses: 0,
-        CrossesAttempted: 0,
-        Tackles: 0,
-        TacklesAttempted: 2,
-        Saves: 0,
         Player: "Sergio Ramos",
-        GameID: 47,
         PositionType: "D",
         PlayerNumber: 4,
         Position: "CB",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
-        MatchRating: 8.3,
-        Goals: 0,
-        OwnGoals: 0,
-        GoalAssists: 0,
-        ShotsOnTarget: 0,
-        ShotsAttempted: 0,
-        Passes: 8,
-        PassesAttempted: 8,
-        Dribbles: 2,
-        DribblesAttempted: 2,
-        Crosses: 0,
-        CrossesAttempted: 0,
-        Tackles: 3,
-        TacklesAttempted: 3,
-        Saves: 0,
         Player: "Pepe",
-        GameID: 47,
         PositionType: "D",
         PlayerNumber: 3,
         Position: "CB",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
-        MatchRating: 7,
-        Goals: 0,
-        OwnGoals: 0,
-        GoalAssists: 0,
-        ShotsOnTarget: 0,
-        ShotsAttempted: 0,
-        Passes: 4,
-        PassesAttempted: 4,
-        Dribbles: 0,
-        DribblesAttempted: 0,
-        Crosses: 0,
-        CrossesAttempted: 0,
-        Tackles: 0,
-        TacklesAttempted: 0,
-        Saves: 1,
         Player: "Keylor Navas",
-        GameID: 47,
         PositionType: "GK",
         PlayerNumber: 1,
         Position: "GK",
-        timestamp: 1489458390000
+        timestamp: time_in_millis
+      },
+      {
+        Team: "Real Madrid",
+        Player: "James Rodríguez",
+        PositionType: "MA",
+        PlayerNumber: 10,
+        Position: "CA",
+        timestamp: time_in_millis
+      },
+      {
+        Team: "Real Madrid",
+        Player: "Isco",
+        PositionType: "MA",
+        PlayerNumber: 22,
+        Position: "CA",
+        timestamp: time_in_millis
+      },
+      {
+        Team: "Real Madrid",
+        Player: "Morata",
+        PositionType: "A",
+        PlayerNumber: 21,
+        Position: "ST",
+        timestamp: time_in_millis
       }
      ];
 
       // Set the collection of events
       this.events = events;
+      this.positiontypes = positiontypes;
 
       // or push them on separately
       // for (var i in events) {

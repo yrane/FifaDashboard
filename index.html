@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Player Ratings</title>
+   <link rel="shortcut icon" href="images/fifa17.png">
 
   <!-- CSS -->
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -35,42 +36,30 @@
           </div> -->
 
           <div class="form-group">
-            <label for="Player">Player: </label>
-            <select v-model="event.Player">
+            <label for="Player">Player: </label><br>
+            <select v-model="event.Player" options="event">
              <option disabled value="">Select a Player</option>
-             <option>Cristiano Ronaldo</option>
-             <option>Karim Benzema</option>
-             <option>Gareth Bale</option>
-             <option>Luka Modrić</option>
-             <option>Toni Kroos</option>
-             <option>Casemiro</option>
-             <option>Marcelo</option>
-             <option>Dani Carvajal</option>
-             <option>Sergio Ramos</option>
-             <option>Pepe</option>
-             <option>Keylor Navas</option>
-             <option>Isco</option>
-             <option>James Rodríguez</option>
-             <option>Morata</option>
+             <option v-for="e in events">{{ e.Player }}</option>
             </select>
           </div>
-          <label for="PositionType">Position Type: </label>
+          <label for="PositionType">Position Type: </label><br>
           <select v-model="event.PositionType">
            <option disabled value="">Select a Position Type</option>
-           <option>A</option>
-           <option>D</option>
-           <option>M</option>
-           <option>MA</option>
-           <option>MD</option>
-           <option>GK</option>
+           <option v-for="p in positiontypes">{{ p }}</option>
           </select>
+
           <div class="form-group">
+            <br>
             <label for="PlayerNumber">Player Number:</label>
-            <input class="form-control" v-model="event.PlayerNumber">
+            <input class="form-control" v-model.number="event.PlayerNumber" type="number">
           </div>
           <div class="form-group">
             <label for="Position">Position:</label>
             <input class="form-control" v-model="event.Position">
+          </div>
+          <div class="form-group">
+            <label for="Team">Team:</label>
+            <input class="form-control" v-model="event.Team">
           </div>
           <div class="form-group">
             <label for="timestamp">Epoch Timestamp:</label>
@@ -78,63 +67,63 @@
           </div>
           <div class="form-group">
             <label for="MatchRating">Match Rating:</label>
-            <input class="form-control" v-model="event.MatchRating" id="MatchRating">
+            <input class="form-control" v-model.number="event.MatchRating" id="MatchRating" type="number">
           </div>
           <div class="form-group">
             <label for="Goals">Goals:</label>
-            <input class="form-control" v-model="event.Goals">
+            <input class="form-control" v-model.number="event.Goals" type="number">
           </div>
           <div class="form-group">
             <label for="OwnGoals">Own Goals:</label>
-            <input class="form-control" v-model="event.OwnGoals">
+            <input class="form-control" v-model.number="event.OwnGoals" type="number">
           </div>
           <div class="form-group">
             <label for="GoalAssists">Goals Assists:</label>
-            <input class="form-control" v-model="event.GoalAssists">
+            <input class="form-control" v-model.number="event.GoalAssists" type="number">
           </div>
           <div class="form-group">
             <label for="ShotsOnTarget">Shots on Target:</label>
-            <input class="form-control" v-model="event.ShotsOnTarget">
+            <input class="form-control" v-model.number="event.ShotsOnTarget" type="number">
           </div>
           <div class="form-group">
             <label for="ShotsAttempted">Shots Attempted:</label>
-            <input class="form-control" v-model="event.ShotsAttempted">
+            <input class="form-control" v-model.number="event.ShotsAttempted" type="number">
           </div>
           <div class="form-group">
             <label for="Passes">Passes:</label>
-            <input class="form-control" v-model="event.Passes">
+            <input class="form-control" v-model.number="event.Passes" type="number">
           </div>
           <div class="form-group">
             <label for="PassesAttempted">Pass Attempted:</label>
-            <input class="form-control" v-model="event.PassesAttempted">
+            <input class="form-control" v-model.number="event.PassesAttempted" type="number">
           </div>
           <div class="form-group">
             <label for="Dribbles">Dribbles:</label>
-            <input class="form-control" v-model="event.Dribbles">
+            <input class="form-control" v-model.number="event.Dribbles" type="number">
           </div>
           <div class="form-group">
             <label for="DribblesAttempted">Dribbles Attempted:</label>
-            <input class="form-control" v-model="event.DribblesAttempted">
+            <input class="form-control" v-model.number="event.DribblesAttempted" type="number">
           </div>
           <div class="form-group">
             <label for="Crosses">Crosses:</label>
-            <input class="form-control" v-model="event.Crosses">
+            <input class="form-control" v-model.number="event.Crosses" type="number">
           </div>
           <div class="form-group">
             <label for="CrossesAttempted">Crosses Attempted:</label>
-            <input class="form-control" v-model="event.CrossesAttempted">
+            <input class="form-control" v-model.number="event.CrossesAttempted" type="number">
           </div>
           <div class="form-group">
             <label for="Tackles">Tackles:</label>
-            <input class="form-control" v-model="event.Tackles">
+            <input class="form-control" v-model.number="event.Tackles" type="number">
           </div>
           <div class="form-group">
             <label for="TacklesAttempted">Tackles Attempted:</label>
-            <input class="form-control" v-model="event.TacklesAttempted">
+            <input class="form-control" v-model.number="event.TacklesAttempted" type="number">
           </div>
           <div class="form-group">
             <label for="Saves">Saves:</label>
-            <input class="form-control" v-model="event.Saves">
+            <input class="form-control" v-model.number="event.Saves" type="number">
           </div>
           <!-- </div> -->
 
@@ -156,9 +145,9 @@
     <!-- show the events -->
     <div class="col-sm-6">
       <div class="list-group">
-       <h4 class="list-group-item-heading">Last Match Ratings</h4>
+       <h4 class="list-group-item-heading">Players</h4>
         <a href="#" class="list-group-item" v-for="event in events">
-          <p class="list-group-item-text" v-if="event.Player">{{ event.Player }}</p>
+          <p class="list-group-item-text" v-if="event.Player">{{ event.PlayerNumber }}&nbsp;&nbsp;&nbsp;{{ event.Player }}</p>
           <p class="list-group-item-text" v-if="event.MatchRating">{{ event.MatchRating }}</p>
 
           <!-- <button class="btn btn-xs btn-danger" v-on:click="deleteEvent(index)">Delete</button> -->
