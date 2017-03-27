@@ -23,6 +23,14 @@ app.use(bodyParser.json());
 app.post('/', function(req, res){
     console.log('POST /');
     console.log(req.body);
+    client.index({
+     index: 'fifa17stats',
+     type: 'gamestats',
+     // id: '1',
+     body: req.body
+}, function (error, response) {
+
+});
     res.writeHead(200, {'Content-Type': 'application/json'});
     res.end('thanks');
 });

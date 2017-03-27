@@ -30,7 +30,8 @@ new Vue({
     PositionType: "",
     PlayerNumber: 0,
     Position: "",
-    timestamp: '' },
+    timestamp: Date.now() },
+    // time_in_millis = Date.now();
     events: [],
     positiontypes: []
   },
@@ -42,7 +43,7 @@ new Vue({
        this.event.PositionType = this.events[i].PositionType;
        this.event.PlayerNumber = this.events[i].PlayerNumber;
        this.event.Team = this.events[i].Team;
-       this.event.timestamp = this.events[i].timestamp;
+       // this.event.timestamp = this.events[i].timestamp;
       }
      }
       // change of userinput, do something
@@ -59,7 +60,7 @@ new Vue({
   methods: {
     // We dedicate a method to retrieving and setting some data
     fetchEvents: function() {
-     var time_in_millis = Date.now();
+     // var time_in_millis = Date.now();
      var positiontypes = ['A', 'D', 'M', 'MA', 'MD', 'GK']
      var events = [
       {
@@ -68,7 +69,7 @@ new Vue({
         PositionType: "A",
         PlayerNumber: 7,
         Position: "LW",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -76,7 +77,7 @@ new Vue({
         PositionType: "A",
         PlayerNumber: 9,
         Position: "ST",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -84,7 +85,7 @@ new Vue({
         PositionType: "A",
         PlayerNumber: 11,
         Position: "RW",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -92,7 +93,7 @@ new Vue({
         PositionType: "M",
         PlayerNumber: 19,
         Position: "CDM",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -100,7 +101,7 @@ new Vue({
         PositionType: "M",
         PlayerNumber: 8,
         Position: "CDM",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -108,7 +109,7 @@ new Vue({
         PositionType: "MD",
         PlayerNumber: 14,
         Position: "CDM",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -116,7 +117,7 @@ new Vue({
         PositionType: "D",
         PlayerNumber: 12,
         Position: "LB",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -124,7 +125,7 @@ new Vue({
         PositionType: "D",
         PlayerNumber: 2,
         Position: "RB",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -132,7 +133,7 @@ new Vue({
         PositionType: "D",
         PlayerNumber: 4,
         Position: "CB",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -140,7 +141,7 @@ new Vue({
         PositionType: "D",
         PlayerNumber: 3,
         Position: "CB",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -148,7 +149,7 @@ new Vue({
         PositionType: "GK",
         PlayerNumber: 1,
         Position: "GK",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -156,7 +157,7 @@ new Vue({
         PositionType: "MA",
         PlayerNumber: 10,
         Position: "CA",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -164,7 +165,7 @@ new Vue({
         PositionType: "MA",
         PlayerNumber: 22,
         Position: "CA",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       },
       {
         Team: "Real Madrid",
@@ -172,7 +173,7 @@ new Vue({
         PositionType: "A",
         PlayerNumber: 21,
         Position: "ST",
-        timestamp: time_in_millis
+        // timestamp: time_in_millis
       }
      ];
 
@@ -188,8 +189,8 @@ new Vue({
 
     // Adds an event to the existing events array
     addEvent: function() {
-      // if(this.event.Player) {
-       console.log(this.event.Passes)
+      if(this.event.Player) {
+       console.log(this.event.Player)
        this.$http.post('/', JSON.stringify(this.event), {
         headers: {
          'Content-Type': 'application/json'
@@ -197,32 +198,7 @@ new Vue({
        }).then(function(response){
         console.log(response)
        });
-        // this.events.push(this.event);
-        // this.event = {
-        //  Team: "",
-        //  MatchRating: '',
-        //  Goals: 1,
-        //  OwnGoals: 0,
-        //  GoalAssists: 0,
-        //  ShotOnTarget: 4,
-        //  ShotsAttempted: 8,
-        //  Passes: 12,
-        //  PassesAttempted: 15,
-        //  Dribbles: 10,
-        //  DribblesAttempted: 14,
-        //  Crosses: 0,
-        //  CrossesAttempted: 1,
-        //  Tackles: 2,
-        //  TacklesAttempted: 4,
-        //  Saves: 0,
-        //  Player: "",
-        //  GameID: '',
-        //  PositionType: "A",
-        //  PlayerNumber: 7,
-        //  Position: "LW",
-        //  timestamp: ''
-        // };
-        // }
+       }
       }
     }
 
