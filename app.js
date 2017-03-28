@@ -68,7 +68,7 @@ new Vue({
         Player: "Cristiano Ronaldo",
         PositionType: "A",
         PlayerNumber: 7,
-        Position: "LW",
+        Position: "LW"
         // timestamp: time_in_millis
       },
       {
@@ -76,7 +76,7 @@ new Vue({
         Player: "Karim Benzema",
         PositionType: "A",
         PlayerNumber: 9,
-        Position: "ST",
+        Position: "ST"
         // timestamp: time_in_millis
       },
       {
@@ -84,7 +84,7 @@ new Vue({
         Player: "Gareth Bale",
         PositionType: "A",
         PlayerNumber: 11,
-        Position: "RW",
+        Position: "RW"
         // timestamp: time_in_millis
       },
       {
@@ -92,7 +92,7 @@ new Vue({
         Player: "Luka Modrić",
         PositionType: "M",
         PlayerNumber: 19,
-        Position: "CDM",
+        Position: "CDM"
         // timestamp: time_in_millis
       },
       {
@@ -100,7 +100,7 @@ new Vue({
         Player: "Toni Kroos",
         PositionType: "M",
         PlayerNumber: 8,
-        Position: "CDM",
+        Position: "CDM"
         // timestamp: time_in_millis
       },
       {
@@ -108,7 +108,7 @@ new Vue({
         Player: "Casemiro",
         PositionType: "MD",
         PlayerNumber: 14,
-        Position: "CDM",
+        Position: "CDM"
         // timestamp: time_in_millis
       },
       {
@@ -116,7 +116,7 @@ new Vue({
         Player: "Marcelo",
         PositionType: "D",
         PlayerNumber: 12,
-        Position: "LB",
+        Position: "LB"
         // timestamp: time_in_millis
       },
       {
@@ -124,7 +124,7 @@ new Vue({
         Player: "Dani Carvajal",
         PositionType: "D",
         PlayerNumber: 2,
-        Position: "RB",
+        Position: "RB"
         // timestamp: time_in_millis
       },
       {
@@ -132,7 +132,7 @@ new Vue({
         Player: "Sergio Ramos",
         PositionType: "D",
         PlayerNumber: 4,
-        Position: "CB",
+        Position: "CB"
         // timestamp: time_in_millis
       },
       {
@@ -140,7 +140,7 @@ new Vue({
         Player: "Pepe",
         PositionType: "D",
         PlayerNumber: 3,
-        Position: "CB",
+        Position: "CB"
         // timestamp: time_in_millis
       },
       {
@@ -148,7 +148,7 @@ new Vue({
         Player: "Keylor Navas",
         PositionType: "GK",
         PlayerNumber: 1,
-        Position: "GK",
+        Position: "GK"
         // timestamp: time_in_millis
       },
       {
@@ -156,7 +156,7 @@ new Vue({
         Player: "James Rodríguez",
         PositionType: "MA",
         PlayerNumber: 10,
-        Position: "CA",
+        Position: "CA"
         // timestamp: time_in_millis
       },
       {
@@ -164,7 +164,7 @@ new Vue({
         Player: "Isco",
         PositionType: "MA",
         PlayerNumber: 22,
-        Position: "CA",
+        Position: "CA"
         // timestamp: time_in_millis
       },
       {
@@ -172,7 +172,7 @@ new Vue({
         Player: "Morata",
         PositionType: "A",
         PlayerNumber: 21,
-        Position: "ST",
+        Position: "ST"
         // timestamp: time_in_millis
       }
      ];
@@ -191,7 +191,7 @@ new Vue({
     addEvent: function() {
       if(this.event.Player) {
        console.log(this.event.Player)
-       this.$http.post('/', JSON.stringify(this.event), {
+       this.$http.post('/save', JSON.stringify(this.event), {
         headers: {
          'Content-Type': 'application/json'
          }

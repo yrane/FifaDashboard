@@ -7,18 +7,7 @@ var client = new elasticsearch.Client({
   log: 'trace'
 });
 
-client.ping({
-  // ping usually has a 3000ms timeout
-  requestTimeout: 1000
-}, function (error) {
-  if (error) {
-    console.trace('elasticsearch cluster is down!');
-  } else {
-    console.log('All is well');
-  }
-});
-
-app.use('/', express.static(__dirname));
+app.use('/save', express.static(__dirname));
 app.use(bodyParser.json());
 app.post('/save', function(req, res){
     console.log('POST /save');
@@ -34,7 +23,3 @@ app.post('/save', function(req, res){
     res.writeHead(200, {'Content-Type': 'application/json'});
     res.end('thanks');
 });
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
